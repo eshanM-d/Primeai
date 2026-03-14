@@ -12,12 +12,8 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-// Configure CORS for production (replace with your Vercel URL later)
-const corsOptions = {
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173', // Allow local and production
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-};
-app.use(cors(corsOptions));
+// Configure CORS to allow all origins for easy assignment evaluation
+app.use(cors());
 app.use(helmet());
 
 // Routes
